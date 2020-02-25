@@ -1,3 +1,4 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MainClassTest extends MainClass {
@@ -24,6 +25,21 @@ public class MainClassTest extends MainClass {
         }
         else {
             System.out.println("Ошибка! getClassNumber должен возвращать число > 45, а возвращает " + check);
+        }
+    }
+
+    @Test
+    public void testGetClassString()
+    {
+        String check_hello = this.getClassString();
+        int searchString1 = check_hello.indexOf("hello");
+        int searchString2 = check_hello.indexOf("Hello");
+
+        if ((searchString1 != -1) || (searchString2 != -1))
+        {
+            System.out.println("Тест пройден. getClassString содержит Hello или hello");
+        } else {
+            Assert.fail("Тест НЕ пройден. getClassString НЕ содержит Hello или hello");
         }
     }
 }
